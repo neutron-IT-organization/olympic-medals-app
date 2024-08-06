@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: olympic-medals-app
-        image: quay.io/florian_even/olympics-medals-app:latest
+        image: quay.io/neutron-it/olympic-medals-app:latest
         ports:
         - containerPort: 5000
 

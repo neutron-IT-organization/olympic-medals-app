@@ -1,0 +1,14 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: olympic
+  namespace: olympic-medals-app
+spec:
+  to:
+    kind: Service
+    name: olympic-medals-app
+    weight: 100
+  port:
+    targetPort: 5000
+  wildcardPolicy: None
+
