@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris 2024 Olympic Medals by Neutron IT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Paris 2024 Olympic Medals</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Country</th>
+                    <th>Gold</th>
+                    <th>Silver</th>
+                    <th>Bronze</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in medals_data %}
+                <tr>
+                    <td>{{ entry.rank }}</td>
+                    <td>{{ entry.country.name }}</td>
+                    <td class="gold">{{ entry.medals.gold }}</td>
+                    <td class="silver">{{ entry.medals.silver }}</td>
+                    <td class="bronze">{{ entry.medals.bronze }}</td>
+                    <td>{{ entry.medals.total }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>Data Source: <a href="https://olympics.com">olympics.com</a></p>
+    </footer>
+</body>
+</html>
+
