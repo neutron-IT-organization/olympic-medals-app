@@ -1,0 +1,23 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: olympic-medals-app
+  namespace: florian-ns
+spec:
+  output:
+    to:
+      kind: DockerImage
+      name: "quay.io/neutron-it/olympic-medals-app:latest"
+    pushSecret:
+      name: florian-even-pull-secret
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  source:
+    type: Git
+    git:
+      uri: "git@github.com:neutron-IT-organization/olympic-medals-app.git"
+    contextDir: /
+    sourceSecret:
+      name: github-deploy-key
